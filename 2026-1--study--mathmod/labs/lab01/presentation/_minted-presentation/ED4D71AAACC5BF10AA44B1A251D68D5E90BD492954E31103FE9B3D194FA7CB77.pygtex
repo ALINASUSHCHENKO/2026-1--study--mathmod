@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd}\PYG{+w}{ }scripts
+julia\PYG{+w}{ }\PYGZhy{}\PYGZhy{}project\PYG{o}{=}..\PYG{+w}{ }test\PYGZus{}setup.jl
+\end{Verbatim}

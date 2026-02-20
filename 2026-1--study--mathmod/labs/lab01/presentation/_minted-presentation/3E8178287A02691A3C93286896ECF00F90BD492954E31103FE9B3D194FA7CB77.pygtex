@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+git\PYG{+w}{ }add\PYG{+w}{ }.
+git\PYG{+w}{ }commit\PYG{+w}{ }\PYGZhy{}am\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}feat(main): make course structure\PYGZsq{}}
+git\PYG{+w}{ }push
+\end{Verbatim}

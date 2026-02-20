@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+git\PYG{+w}{ }push\PYG{+w}{ }\PYGZhy{}\PYGZhy{}all
+git\PYG{+w}{ }push\PYG{+w}{ }\PYGZhy{}\PYGZhy{}tags
+\end{Verbatim}

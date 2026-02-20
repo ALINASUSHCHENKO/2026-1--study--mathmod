@@ -1,0 +1,11 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\numberline {1}Цель работы}{3}{section.1}%
+\contentsline {section}{\numberline {2}Выполнение работы}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Создание репозитория курса на основе шаблона}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Настройка каталога курса}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Использование Git Flow}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Создание проекта DrWatson для лабораторной работы}{6}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Добавление необходимых пакетов}{7}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Реализация модели экспоненциального роста (базовый скрипт)}{9}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Литературная реализация модели}{11}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Реализация параметрического исследования модели}{12}{subsection.2.8}%

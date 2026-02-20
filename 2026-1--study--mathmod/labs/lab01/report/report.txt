@@ -1,0 +1,361 @@
+\input{preamble.tex}
+
+\title{Отчет по лабораторной работе № 1 \\ Основы работы в Julia и математическое моделирование}
+\author{Сущенко Алина Николаевна \\ НПИбд-01-23}
+\date{2026}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\newpage
+\section{Цель работы}
+
+Подготовка рабочего пространства для выполнения программ и приобретение необходимых навыков создания и преобразования программ на Julia.
+
+\newpage
+\section{Выполнение работы}
+
+\subsection{Создание репозитория курса на основе шаблона}
+
+Ознакомившись с инструкцией, я перешла к созданию собственного репозитория для курса. Я авторизовалась на сайте GitHub под своей учётной записью. Затем я перешла в репозиторий-шаблон. На странице шаблона я нашла и нажала кнопку «Использовать как шаблон», которая перенаправила меня на страницу создания нового репозитория. В открывшейся форме я указала название для моего нового проекта: \texttt{2026-1--study--mathmod}. Убедившись, что выбран уровень доступа «публичный», я нажала кнопку для подтверждения создания репозитория.
+
+В терминале я выполнила команду создания родительского каталога для всех учебных проектов и перешла в него. Затем я клонировала созданный репозиторий (Рис. \ref{01}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/01.png}
+    \captionof{figure}{Клонирование репозитория.}
+    \label{01}
+\end{center}
+
+\subsection{Настройка каталога курса}
+
+Я перешла в каталог клонированного репозитория. Для инициализации структуры каталога под предмет «Математическое моделирование» я записала его код в файл \texttt{COURSE} и свою фамилию в файл \texttt{STUDENT} (Рис. \ref{02}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/02.png}
+    \captionof{figure}{Запись информации о курсе и студенте.}
+    \label{02}
+\end{center}
+
+Затем я запустила процесс подготовки рабочего пространства, выполнив \texttt{make prepare}. После подготовки структуры я добавила все новые файлы в индекс Git, создала первый коммит и отправила файлы на удаленный сервер GitHub (Рис. \ref{03}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/03.png}
+    \captionof{figure}{Добавление файлов и коммит.}
+    \label{03}
+\end{center}
+
+\subsection{Использование Git Flow}
+
+Я инициализировала Git Flow в своём проекте, выполнив команду \texttt{git flow init}. При инициализации я оставила предложенные по умолчанию названия для веток (Рис. \ref{04}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/04.png}
+    \captionof{figure}{Инициализация Git Flow.}
+    \label{04}
+\end{center}
+
+Для отправки всей истории и всех веток в удаленные репозитории я использовала команду \texttt{git push -u -{}-all} (Рис. \ref{05}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/05.png}
+    \captionof{figure}{Отправка всех веток в удаленный репозиторий.}
+    \label{05}
+\end{center}
+
+Затем я создала релиз с версией 1.0.0 с помощью команд \texttt{git flow release start 1.0.0} и \texttt{git flow release finish 1.0.0} (Рис. \ref{06}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/06.png}
+    \captionof{figure}{Завершение релиза.}
+    \label{06}
+\end{center}
+
+После завершения релиза я отправила все ветки и теги в удаленный репозиторий командами \texttt{git push -{}-all} и \texttt{git push -{}-tags} (Рис. \ref{07}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/07.png}
+    \captionof{figure}{Отправка всех веток и тегов.}
+    \label{07}
+\end{center}
+
+\subsection{Создание проекта DrWatson для лабораторной работы}
+
+Я перешла в каталог, предназначенный для лабораторных работ: \texttt{cd labs/lab01}.
+
+В REPL Julia я последовательно выполнила команды для установки и инициализации проекта: \texttt{using Pkg}, \texttt{Pkg.add("DrWatson")}, \texttt{using DrWatson}, \texttt{initialize\_project("project"; authors="ansusenko", git=false)} (Рис. \ref{08}-\ref{09}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/08.png}
+    \captionof{figure}{Установка DrWatson.}
+    \label{08}
+\end{center}
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/09.png}
+    \captionof{figure}{Инициализация проекта.}
+    \label{09}
+\end{center}
+
+После создания проекта я перешла в его каталог с помощью функции \texttt{cd("project")}.
+
+\subsection{Добавление необходимых пакетов}
+
+Следуя инструкции, я последовательно добавила все необходимые для работы пакеты:
+
+\begin{itemize}
+    \item \texttt{Pkg.add("DifferentialEquations")} (Рис. \ref{10})
+    \item \texttt{Pkg.add("Plots")} (Рис. \ref{11})
+    \item \texttt{Pkg.add("DataFrames")} (Рис. \ref{12})
+    \item \texttt{Pkg.add("Literate")} (Рис. \ref{13})
+    \item \texttt{Pkg.add("CSV")} (Рис. \ref{14})
+    \item \texttt{Pkg.add("JLD2")} (Рис. \ref{15})
+    \item \texttt{Pkg.add("IJulia")} (Рис. \ref{16})
+    \item \texttt{Pkg.add("BenchmarkTools")} (Рис. \ref{17})
+    \item \texttt{Pkg.add("Quarto")} (Рис. \ref{18})
+\end{itemize}
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/10.png}
+    \captionof{figure}{Добавление пакета DifferentialEquations.}
+    \label{10}
+\end{center}
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/11.png}
+    \captionof{figure}{Добавление пакета Plots.}
+    \label{11}
+\end{center}
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/12.png}
+    \captionof{figure}{Добавление пакета DataFrames.}
+    \label{12}
+\end{center}
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/13.png}
+    \captionof{figure}{Добавление пакета Literate.}
+    \label{13}
+\end{center}
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/14.png}
+    \captionof{figure}{Добавление пакета CSV.}
+    \label{14}
+\end{center}
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/15.png}
+    \captionof{figure}{Добавление пакета JLD2.}
+    \label{15}
+\end{center}
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/16.png}
+    \captionof{figure}{Добавление пакета IJulia.}
+    \label{16}
+\end{center}
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/17.png}
+    \captionof{figure}{Добавление пакета BenchmarkTools.}
+    \label{17}
+\end{center}
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/18.png}
+    \captionof{figure}{Добавление пакета Quarto.}
+    \label{18}
+\end{center}
+
+Для проверки корректности установки я создала тестовый скрипт \texttt{scripts/test\_setup.jl}. Я выполнила проверку, запустив этот скрипт с активацией окружения проекта: \texttt{julia --project=.. test\_setup.jl} (находясь в каталоге \texttt{scripts}). Все проверки прошли успешно, и структура проекта была сформирована (Рис. \ref{19}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/19.png}
+    \captionof{figure}{Запуск тестового скрипта.}
+    \label{19}
+\end{center}
+
+\subsection{Реализация модели экспоненциального роста (базовый скрипт)}
+
+Я создала файл скрипта \texttt{scripts/01\_exponential\_growth.jl} и поместила в него код, реализующий решение дифференциального уравнения экспоненциального роста (Рис. \ref{20}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/20.png}
+    \captionof{figure}{Создание файла скрипта.}
+    \label{20}
+\end{center}
+
+Для выполнения этого скрипта я использовала команду \texttt{julia --project=.. 01\_exponential\_growth.jl} (находясь в каталоге \texttt{scripts}) (Рис. \ref{21}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/21.png}
+    \captionof{figure}{Результат работы скрипта.}
+    \label{21}
+\end{center}
+
+Скрипт вывел первые 5 строк результатов моделирования и аналитическое время удвоения популяции, которое составило 2.31.
+
+Также скрипт сгенерировал график экспоненциального роста (Рис. \ref{22}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/22.png}
+    \captionof{figure}{График экспоненциального роста.}
+    \label{22}
+\end{center}
+
+\subsubsection*{Структура решения дифференциального уравнения}
+
+Модель экспоненциального роста описывается дифференциальным уравнением:
+
+\[ \frac{du}{dt} = \alpha u, \quad u(0) = u_0 \]
+
+Аналитическое решение:
+
+\[ u(t) = u_0 e^{\alpha t} \]
+
+Время удвоения вычисляется по формуле:
+
+\[ T_{1/2} = \frac{\ln 2}{\alpha} \]
+
+Для параметров модели \(\alpha = 0.3\), \(u_0 = 1.0\):
+
+\[ T_{1/2} = \frac{\ln 2}{0.3} \approx 2.31 \]
+
+\subsubsection*{Структура данных результатов}
+
+Результаты моделирования сохраняются в DataFrame со следующими полями:
+
+\begin{center}
+\begin{tabular}{|l|l|c|}
+\hline
+\textbf{Поле} & \textbf{Описание} & \textbf{Тип данных} \\
+\hline
+t & Время & Float64 \\
+u & Значение популяции & Float64 \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Литературная реализация модели}
+
+Я отредактировала файл \texttt{scripts/01\_exponential\_growth.jl}, добавив подробные комментарии в формате Markdown, чтобы превратить его в литературный исходник (Рис. \ref{23}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/23.png}
+    \captionof{figure}{Редактирование кода.}
+    \label{23}
+\end{center}
+
+Затем я повторно выполнила этот литературный скрипт той же командой \texttt{julia --project=.. 01\_exponential\_growth.jl}, убедившись, что код всё ещё работает.
+
+Я создала скрипт для генерации производных форматов \texttt{scripts/tangle.jl}, скопировав его содержимое из методички (Рис. \ref{24}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/24.png}
+    \captionof{figure}{Создание файла скрипта tangle.jl.}
+    \label{24}
+\end{center}
+
+С помощью этого скрипта я сгенерировала чистый код, Quarto-документ и Jupyter notebook из моего литературного исходника: \texttt{julia --project=.. scripts/tangle.jl scripts/01\_exponential\_growth.jl} (Рис. \ref{25}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/25.png}
+    \captionof{figure}{Результат работы скрипта tangle.jl.}
+    \label{25}
+\end{center}
+
+\subsection{Реализация параметрического исследования модели}
+
+Я создала новый, более сложный литературный скрипт \texttt{scripts/02\_exponential\_growth.jl}, который позволял проводить исследование модели с различными параметрами.
+
+После этого я выполнила параметрическое исследование, запустив этот скрипт командой \texttt{julia --project=.. scripts/02\_exponential\_growth.jl}. Скрипт успешно выполнил сканирование параметров и сохранил все данные (Рис. \ref{26}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/27.png}
+    \captionof{figure}{Результат работы параметрического скрипта.}
+    \label{26}
+\end{center}
+
+\subsubsection*{Параметры исследования}
+
+\begin{center}
+\begin{tabular}{|l|l|c|}
+\hline
+\textbf{Параметр} & \textbf{Значение} & \textbf{Описание} \\
+\hline
+\(\alpha\) & 0.3 & Коэффициент роста \\
+\(u_0\) & [1.0] & Начальная популяция \\
+saveat & 0.1 & Шаг сохранения \\
+solver & Tsit5() & Численный решатель \\
+tspan & (0.0, 10.0) & Интервал времени \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection*{Результаты базового эксперимента}
+
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Показатель} & \textbf{Значение} \\
+\hline
+Финальная популяция & 20.0854851618676 \\
+Время удвоения & 2.31 \\
+\hline
+\end{tabular}
+\end{center}
+
+Затем я снова воспользовалась скриптом \texttt{tangle.jl} для генерации производных форматов уже для этого параметрического исследования: \texttt{julia --project=.. scripts/tangle.jl scripts/02\_exponential\_growth.jl} (Рис. \ref{27}):
+
+\begin{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{../images/28.png}
+    \captionof{figure}{Генерация форматов для параметрического исследования.}
+    \label{27}
+\end{center}
+
+\newpage
+\subsection*{Заключение}
+В результате выполнения лабораторной работы были получены практические навыки:
+\begin{itemize}
+    \item Организации структурированного рабочего пространства для научных вычислений;
+    \item Использования системы контроля версий Git и методологии Git Flow;
+    \item Установки и настройки пакетов Julia;
+    \item Реализации математических моделей в Julia;
+    \item Литературного программирования и генерации различных форматов документации;
+    \item Проведения параметрических исследований и сохранения результатов.
+\end{itemize}
+
+\end{document}

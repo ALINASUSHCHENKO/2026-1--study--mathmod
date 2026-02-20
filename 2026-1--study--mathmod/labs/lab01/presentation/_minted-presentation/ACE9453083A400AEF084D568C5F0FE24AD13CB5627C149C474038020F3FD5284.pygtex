@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{Literate}
+\PYG{n}{Literate}\PYG{o}{.}\PYG{n}{notebook}\PYG{p}{(}\PYG{n+nb}{ARGS}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}.\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{Literate}\PYG{o}{.}\PYG{n}{markdown}\PYG{p}{(}\PYG{n+nb}{ARGS}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}.\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{Literate}\PYG{o}{.}\PYG{n}{script}\PYG{p}{(}\PYG{n+nb}{ARGS}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}.\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

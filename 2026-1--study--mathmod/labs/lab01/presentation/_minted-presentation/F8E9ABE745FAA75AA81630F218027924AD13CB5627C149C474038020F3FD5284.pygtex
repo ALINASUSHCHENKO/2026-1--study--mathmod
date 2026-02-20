@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{Pkg}
+\PYG{n}{Pkg}\PYG{o}{.}\PYG{n}{add}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}DrWatson\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{DrWatson}
+\PYG{n}{initialize\PYGZus{}project}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}project\PYGZdq{}}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{authors}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}ansusenko\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{git}\PYG{o}{=}\PYG{n+nb}{false}\PYG{p}{)}
+\end{Verbatim}
